@@ -1,0 +1,50 @@
+<div ng-include src="'menus/calendar-menu.tpl.html'"></div>
+<div class="panel panel-default holydate-panel">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 holydate">
+        <h2 class="holydate-header" ng-bind="year[0][0].date |
+            amDateFormat:'Календарь на YYYY год'"></h2>
+        <div ng-repeat="month in year">
+          <h3 class="holydate-header-text"
+              ng-init="monthid = (month[0].date | amDateFormat:'MM')"
+              id="{{monthid}}">
+            <a href=""
+               ng-bind="month[0].date |
+               amDateFormat:'MMMM'"
+               ng-click="linkToAnchor(monthid)"/></a>
+          </h3>
+          <div ng-repeat="day in month">
+            <dl ng-init="dateid = (day.date | amDateFormat:'MMDD')">
+              <dt id="{{dateid}}">
+                <a href=""
+                   ng-click="linkToAnchor(dateid)"/>{{day.date | amDateFormat:'D'}}</a>
+              </dt>
+              <dd>
+                <div class="holydate-group">
+                  <p ng-bind="day.gregorian_date"></p>
+                  <p ng-bind="day.julian_date"></p>
+                </div>
+                <div class="holydate-group">
+                  <p ng-bind="day.day_of_week"></p>
+                  <p ng-bind="day.tone"></p>
+                </div>
+                <div class="holydate-group">
+                  <p class="daily-feast-header"
+                     ng-bind-html="day.daily_feast|to_trusted"></p>
+                </div>
+                <div class="holydate-group">
+                  <p ng-bind-html="day.saints|to_trusted"></p>
+                </div>
+                <div class="holydate-group">
+                  <p ng-bind="day.fast"></p>
+                  <p ng-bind="day.bows"></p>
+                </div>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

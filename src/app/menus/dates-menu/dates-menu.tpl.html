@@ -1,0 +1,18 @@
+<div class="btn-group">
+  <button class="btn btn-default"
+          ng-bind="last | amDateFormat:'{{settings.lastFormat}}'"
+          ng-click="setLast()"></button>
+  <button class="btn btn-default"
+          ng-bind="next | amDateFormat:'{{settings.nextFormat}}'"
+          ng-click="setNext()"></button>
+  <button class="btn btn-default"
+          ng-click="setToday()">Сегодня</button>
+  <button class="btn btn-default"
+          ng-click="setCurrentMonth()">Текущий месяц</button>
+  <button class="btn btn-default"
+          ng-click="setCurrentYear()">Текущий год</button>
+</div>
+
+
+
+
