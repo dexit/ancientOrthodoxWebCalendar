@@ -2,7 +2,7 @@ angular.module('DatesMenuController', [
 ])
 
 .controller('DatesMenuController',
-    function DatesMenuController($scope, $location, moment) {
+    function DatesMenuController($scope, $location, moment, pathService) {
       'use strict';
 
       let settings = {
@@ -30,21 +30,7 @@ angular.module('DatesMenuController', [
       };
 
       $scope.settings = settings[$scope.menuMode];
-
       const today = moment();
-
-      $scope.setToday = function() {
-        $location.path(today.format('YYYY/MM/DD'));
-      };
-
-      $scope.setCurrentMonth = function() {
-        $location.path(today.format('YYYY/MM'));
-      };
-
-      $scope.setCurrentYear = function() {
-        $location.path(today.format('YYYY'));
-      };
-
       let date = $location.path();
 
       if ($location.path() === '/') {
@@ -63,10 +49,10 @@ angular.module('DatesMenuController', [
 
 
       $scope.setLast = function() {
-        $location.path(last.format(settings[$scope.menuMode].pathFormat));
+        pathService.setPath(settings[$scope.menuMode].pathFormat, last);
       };
 
       $scope.setNext = function() {
-        $location.path(next.format(settings[$scope.menuMode].pathFormat));
+        pathService.setPath(settings[$scope.menuMode].pathFormat, next);
       };
     });

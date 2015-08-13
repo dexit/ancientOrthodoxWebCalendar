@@ -18,6 +18,6 @@ angular.module('MonthsController', [
             // success
             $scope.month = data.month[0];
           }, function(errResponse) {
-            // fail
+            console.log(errResponse);
           });
     });

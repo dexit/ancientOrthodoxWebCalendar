@@ -3,7 +3,7 @@ angular.module('DateInputController', [
 ])
 
 .controller('DateInputController',
-    function DateInputController($scope, $location, moment) {
+    function DateInputController($scope, $location, moment, pathService) {
       'use strict';
 
       let settings = {
@@ -46,15 +46,9 @@ angular.module('DateInputController', [
 
         let selectedDate = moment($scope.selectedDate);
 
-        if (selectedDate.isValid()) {
-          let prefix = /\w+\/[^0-9\/]/.exec($location.path()) || [''];
-          let date = selectedDate.format(
-              settings[$scope.pickerMode].pathFormat);
+        // Change url
+        pathService.setPath(
+            settings[$scope.pickerMode].pathFormat, selectedDate);
 
-          $location.path(`${ prefix[0] }/${ date }`);
-        }
-        else {
-          // send error to user
-        }
       };
     });

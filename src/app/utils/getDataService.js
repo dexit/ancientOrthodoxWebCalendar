@@ -28,7 +28,8 @@ angular.module('getDataService', [
         paschalion: $resource(
             'http://:api/paschalion/:year', {
               api: ENV.apiEndpoint,
-              year: '@_year'
+              year: '@_year',
+              calendar: '@_calendar'
             })
       };
     });

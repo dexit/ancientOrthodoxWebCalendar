@@ -5,6 +5,8 @@
       <div class="col-md-10 col-md-offset-1 holydate">
         <h2 class="holydate-header" ng-bind="paschalion.date |
             amDateFormat:'Зрячая пасхалия на YYYY год'"></h2>
+        <h4 class="holydate-subheader"
+            ng-bind="calendarSystem"></h4>
         <div ng-repeat="key in ['year', 'resurrection_day', 'fast_free_weeks',
                                 'fasts', 'movable_feasts', 'minor_fixed_feasts',
                                 'major_fixed_feasts', 'soul_saturdays']">

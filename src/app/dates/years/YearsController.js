@@ -15,6 +15,7 @@ angular.module('YearsController', [
 
         let out = [];
 
+        // FIXME: move to service
         for (let m = 0; m < 12; m++) {
           let monthArr = [];
           for (let day of yearArr) {

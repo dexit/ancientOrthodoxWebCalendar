@@ -7,7 +7,6 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-closure-linter');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -318,42 +317,6 @@ module.exports = function ( grunt ) {
     },
 
     /**
-    * Google code style checking.
-    */
-
-    closureLint: {
-      options: {
-        // [OPTIONAL] Use strict mode (default is false).
-        strict: true
-      },
-      app:{
-        src: [ '<%= appFiles.js %>' ]
-        // Also possible:
-        // src: [ 'app/scripts' ]
-      },
-      // Example configuration using the jslint converter
-      appConverter:{
-        options: {
-          // [OPTIONAL] Use strict mode (default is false).
-          strict: true,
-          // Converts linter results into XML format
-          converter: 'jslint'
-        },
-        src: [ '<%= appFiles.js %>'],
-        dest: 'gjslint.log' // Writes linter result into dest file
-      }
-    },
-    closureFixStyle: {
-      options: {
-        // [OPTIONAL] Use strict mode (default is false).
-        strict: true
-      },
-      app:{
-        src: [ '<%= appFiles.js %>' ]
-      }
-    },
-
-    /**
      * HTML2JS is a Grunt plugin that takes all of your template files and
      * places them into JavaScript files as strings that are added to
      * AngularJS's template cache. This means that the templates too become
@@ -601,7 +564,7 @@ module.exports = function ( grunt ) {
    * The `build` task gets your app ready to run for development and testing.
    */
   grunt.registerTask( 'build', [
-    'clean', 'html2js', 'closureLint', 'closureFixStyle',
+    'clean', 'html2js',
     'jshint', 'less:build', 'ngconstant:development',
     'concat:buildCss', 'copy:buildAppAssets', 'copy:buildVendorAssets',
     'copy:buildAppjs', 'copy:buildVendorjs', 'copy:buildVendorcss',
