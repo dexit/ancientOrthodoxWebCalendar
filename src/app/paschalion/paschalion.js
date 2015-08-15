@@ -15,7 +15,8 @@ angular.module('ancientWebCalendar.paschalion', [
               }
             },
             data: {
-              'dateFormat': 'Зрячая пасхалия на YYYY год'
+              title: { formattedTitle: 'Зрячая пасхалия на YYYY год' }
+
             }
           });
     });

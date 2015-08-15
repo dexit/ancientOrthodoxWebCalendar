@@ -16,7 +16,9 @@ angular.module('ancientWebCalendar.dates', [
                 templateUrl: 'dates/days/days.tpl.html'
               }
             },
-            data: { pageTitle: 'Сегодня' }
+            data: {
+              title: { simpleTitle: 'Сегодня'}
+            }
           })
       .state('year', {
             url: '/:year',
@@ -27,7 +29,7 @@ angular.module('ancientWebCalendar.dates', [
               }
             },
             data: {
-              'dateFormat': 'YYYY год'
+             title: {'formattedTitle': 'YYYY год'}
             }
           })
       .state('month', {
@@ -39,7 +41,7 @@ angular.module('ancientWebCalendar.dates', [
               }
             },
             data: {
-              'dateFormat': 'MMMM YYYY года'
+              title: {'formattedTitle': 'MMMM YYYY года'}
             }
           })
       .state('day', {
@@ -51,7 +53,7 @@ angular.module('ancientWebCalendar.dates', [
               }
             },
             data: {
-              'dateFormat': 'D MMMM YYYY года'
+              title: {'formattedTitle': 'D MMMM YYYY года'}
             }
           });
 
