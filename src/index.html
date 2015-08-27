@@ -25,7 +25,7 @@
             <img alt="Древлекалендарь" src="assets/images/logo.png">
           </a>
           <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
-            ng-click="menuCollapsed = ! menuCollapsed">
+            ng-click="menuCollapsed =! menuCollapsed">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -47,6 +47,8 @@
               </a>
             </li>
           </ul>
+          <search-input-directive placeholder="Имя святого или праздник"
+                                  button-text="Найти"></search-input-directive>
         </div>
       </div>
     </div>

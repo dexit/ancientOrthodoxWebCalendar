@@ -3,26 +3,26 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-10 col-md-offset-1 holydate">
-        <h2 class="holydate-header" ng-bind="month[0].date |
+        <h2 class="holydate-header" ng-bind="vm.month[0].date |
             amDateFormat:'Календарь на MMMM YYYY года'"></h2>
-        <div ng-repeat="day in month">
+        <div ng-repeat="day in vm.month">
           <dl ng-init="dateid = (day.date | amDateFormat:'DD')">
             <dt id="{{dateid}}">
               <a href=""
-                 ng-click="linkToAnchor(dateid)"/>{{day.date | amDateFormat:'D'}}</a>
+                 ng-click="vm.linkToAnchor(dateid)"/>{{day.date | amDateFormat:'D'}}</a>
             </dt>
             <dd>
               <div class="holydate-group">
-                <p ng-bind="day.gregorian_date"></p>
-                <p ng-bind="day.julian_date"></p>
+                <p ng-bind="day.gregorianDate"></p>
+                <p ng-bind="day.julianDate"></p>
               </div>
               <div class="holydate-group">
-                <p ng-bind="day.day_of_week"></p>
+                <p ng-bind="day.dayOfWeek"></p>
                 <p ng-bind="day.tone"></p>
               </div>
               <div class="holydate-group">
                 <p class="daily-feast-header"
-                   ng-bind-html="day.daily_feast|to_trusted"></p>
+                   ng-bind-html="day.dailyFeast|to_trusted"></p>
               </div>
               <div class="holydate-group">
                 <p ng-bind-html="day.saints|to_trusted"></p>

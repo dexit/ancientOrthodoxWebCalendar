@@ -12,8 +12,8 @@ angular.module('ancientWebCalendar.dates', [
             url: '/',
             views: {
               'main': {
-                controller: 'TodayController',
-                templateUrl: 'dates/days/days.tpl.html'
+                controller: 'DayController as vm',
+                templateUrl: 'dates/days/day.tpl.html'
               }
             },
             data: {
@@ -24,8 +24,8 @@ angular.module('ancientWebCalendar.dates', [
             url: '/:year',
             views: {
               main: {
-                controller: 'YearsController',
-                templateUrl: 'dates/years/years.tpl.html'
+                controller: 'YearController as vm',
+                templateUrl: 'dates/years/year.tpl.html'
               }
             },
             data: {
@@ -36,8 +36,8 @@ angular.module('ancientWebCalendar.dates', [
             url: '/:year/:month',
             views: {
               'main': {
-                controller: 'MonthsController',
-                templateUrl: 'dates/months/months.tpl.html'
+                controller: 'MonthController as vm',
+                templateUrl: 'dates/months/month.tpl.html'
               }
             },
             data: {
@@ -48,8 +48,8 @@ angular.module('ancientWebCalendar.dates', [
             url: '/:year/:month/:day',
             views: {
               'main': {
-                controller: 'DaysController',
-                templateUrl: 'dates/days/days.tpl.html'
+                controller: 'DayController as vm',
+                templateUrl: 'dates/days/day.tpl.html'
               }
             },
             data: {

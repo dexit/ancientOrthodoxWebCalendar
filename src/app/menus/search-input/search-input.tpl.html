@@ -1,0 +1,13 @@
+ <form class="navbar-form navbar-right" role="search">
+  <div class="form-group">
+    <input type="search"
+           class="form-control"
+           placeholder="{{placeholder}}"
+           ng-model="inputModel">
+  </div>
+    <button type="submit"
+            class="btn btn-default"
+            ng-bind="buttonText"
+            ng-click="doSearch()">
+    </button>
+</form>

@@ -5,6 +5,7 @@ angular.module('ancientWebCalendar', [
   'ancientWebCalendar.menus',
   'ancientWebCalendar.utils',
   'ancientWebCalendar.paschalion',
+  'ancientWebCalendar.search',
   'ancientWebCalendar.dates',
   'ui.router',
   'angularMoment'

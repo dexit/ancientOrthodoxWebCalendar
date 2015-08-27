@@ -1,10 +1,10 @@
-<div class="btn-group">
+<div class="btn-group" ng-controller="DatesMenuController as vm">
   <button class="btn btn-default"
-          ng-bind="last | amDateFormat:'{{settings.lastFormat}}'"
-          ng-click="setLast()"></button>
+          ng-bind="vm.last | amDateFormat:'{{vm.settings.lastFormat}}'"
+          ng-click="vm.setLast()"></button>
   <button class="btn btn-default"
-          ng-bind="next | amDateFormat:'{{settings.nextFormat}}'"
-          ng-click="setNext()"></button>
+          ng-bind="vm.next | amDateFormat:'{{vm.settings.nextFormat}}'"
+          ng-click="vm.setNext()"></button>
 </div>
 
 

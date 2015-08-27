@@ -68,6 +68,15 @@ h2 {
   font-family: @sans-narrow;
 }
 
+input[placeholder] {
+  font-family: @sans-narrow;
+  font-style: italic;
+}
+
+.form-control[disabled] {
+  background-color: #cecece;;
+}
+
 /**
  * Navigation
  */
@@ -124,7 +133,15 @@ h2 {
       }
     }
 
+    .holydate-search-header {
+      a {
+        font-size: 85%;
+        color: #252525;
+      }
+    }
+
     a {
+      font-family: @serif-custom;
       color: rgba(82, 82, 82, 0.91);
       font-size: 80%;
     }
@@ -147,6 +164,11 @@ h2 {
 
       p {
         margin-bottom: 0;
+      }
+
+      .highlight {
+        background-color: rgba(243, 181, 91, 0.56);
+        border-bottom: 1px solid rgba(177, 98, 12, 0.82);
       }
 
       .daily-feast-header {

@@ -10,7 +10,7 @@ angular.module('ancientWebCalendar.paschalion', [
             url: '/paschalion/:year',
             views: {
               main: {
-                controller: 'PaschalionController',
+                controller: 'PaschalionController as vm',
                 templateUrl: 'paschalion/paschalion.tpl.html'
               }
             },

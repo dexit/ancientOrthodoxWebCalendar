@@ -1,0 +1,29 @@
+<div class="panel panel-default holydate-panel">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 holydate">
+        <h2 class="holydate-header">Поиск по запросу «{{vm.query}}»</h2>
+        <div ng-if="vm.searchResult.count != 0">
+          <h4 class="holydate-subheader">
+            {{vm.searchResult.count | russian_pluralize: ['Найден', 'Найдены', 'Найдено']}}
+            {{vm.searchResult.count}}
+            {{vm.searchResult.count | russian_pluralize: ['результат', 'результата', 'результатов']}}</h4>
+          <div ng-repeat="item in vm.searchResult.result">
+            <div class="holydate-group">
+              <h3 class="holydate-search-header">
+                <a ng-href="#/{{item.gregorianDate | amDateFormat:'YYYY/MM/DD'}}"/>
+                  {{item.gregorianDate | amDateFormat:'D MMMM YYYY по н. ст.'}}<br>
+                  {{item.julianDate | amDateFormat:'D MMMM YYYY по ст. ст.'}}
+                </a>
+              </h3>
+              <p ng-bind-html="item.searchItem | to_trusted"></p>
+            </div>
+          </div>
+        </div>
+        <div ng-if="vm.searchResult.count == 0">
+          <h3 class="holydate-subheader">Результат не найден</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

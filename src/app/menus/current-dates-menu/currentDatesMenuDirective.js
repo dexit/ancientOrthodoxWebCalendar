@@ -1,19 +1,22 @@
 angular.module('currentDatesMenuDirective', [
-  'CurrentDatesMenuController'
 ])
 
 .directive('currentDatesMenuDirective',
-    function currentDatesMenuDirective() {
-      'use strict';
-
+    function currentDatesMenuDirective($parse,
+      moment, pathService, menuSettingsService) {
       return {
         restrict: 'E',
         replace: true,
-        scope: {
-          menuMode: '@'
-        },
+        scope: true,
         templateUrl: 'menus/current-dates-menu/current-dates-menu.tpl.html',
-        controller: 'CurrentDatesMenuController'
+        link: function ($scope, element, attrs) {
+          const today = moment();
+          $scope.settings = menuSettingsService[attrs.menuMode];
+
+          $scope.setCurrent = function() {
+            pathService.setPath(
+              menuSettingsService[attrs.menuMode].pathFormat, today);
+          };
+        }
       };
-    }
-    );
+    });

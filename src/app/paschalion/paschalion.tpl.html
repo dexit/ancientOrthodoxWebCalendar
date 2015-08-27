@@ -3,21 +3,20 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-10 col-md-offset-1 holydate">
-        <h2 class="holydate-header" ng-bind="paschalion.date |
+        <h2 class="holydate-header" ng-bind="vm.paschalion.date |
             amDateFormat:'Зрячая пасхалия на YYYY год'"></h2>
         <h4 class="holydate-subheader"
-            ng-bind="calendarSystem"></h4>
-        <div ng-repeat="key in ['year', 'resurrection_day', 'fast_free_weeks',
-                                'fasts', 'movable_feasts', 'minor_fixed_feasts',
-                                'major_fixed_feasts', 'soul_saturdays']">
+            ng-bind="vm.calendarSystem"></h4>
+        <div ng-repeat="key in ['year', 'resurrectionDay', 'fastFreeWeeks',
+                                'fasts', 'movableFeasts', 'minorFixedFeasts',
+                                'majorFixedFeasts', 'soulSaturdays']">
           <div class="holydate-group">
-                      <h3 class="holydate-header"
-                  ng-bind="paschalion[key].headline"></h3>
-          <div ng-repeat="item in paschalion[key].result">
-            <p ng-bind="item"></p>
+             <h3 class="holydate-header"
+                 ng-bind="vm.paschalion[key].headline"></h3>
+            <div ng-repeat="item in vm.paschalion[key].result">
+              <p ng-bind="item"></p>
+            </div>
           </div>
-          </div>
-
         </div>
       </div>
     </div>

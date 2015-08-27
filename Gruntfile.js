@@ -4,6 +4,7 @@ module.exports = function ( grunt ) {
    * Load required Grunt tasks. These are installed based on the versions listed
    * in `package.json` when you do `npm install` in this directory.
    */
+  grunt.loadNpmTasks('grunt-babel');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -123,9 +124,9 @@ module.exports = function ( grunt ) {
       buildAppjs: {
         files: [
           {
-            src: [ '<%= appFiles.js %>' ],
-            dest: '<%= buildDir %>/',
-            cwd: '.',
+            src: [ '<%= tempFiles.js %>' ],
+            dest: '<%= buildDir %>',
+            cwd: '<%= buildDir %>',
             expand: true
           }
         ]
@@ -200,6 +201,21 @@ module.exports = function ( grunt ) {
           'module.suffix'
         ],
         dest: '<%= compileDir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js'
+      }
+    },
+
+    babel: {
+      options: {
+        sourceMap: false
+      },
+      dist: {
+        files: [
+          {
+            expand: true,
+            src: [ '<%= appFiles.js %>'],
+            dest: '<%= buildDir %>'
+          }
+        ]
       }
     },
 
@@ -486,7 +502,12 @@ module.exports = function ( grunt ) {
         files: [
           '<%= appFiles.js %>'
         ],
-        tasks: [ 'jshint:src', 'karma:unit:run', 'copy:buildAppjs' ]
+        tasks: [
+          'jshint:src',
+          //'karma:unit:run',
+          'babel'
+          //'copy:buildAppjs'
+        ]
       },
 
       /**
@@ -554,7 +575,11 @@ module.exports = function ( grunt ) {
    * before watching for changes.
    */
   grunt.renameTask( 'watch', 'delta' );
-  grunt.registerTask( 'watch', [ 'build', 'karma:unit', 'delta' ] );
+  grunt.registerTask( 'watch', [
+    'build',
+    //'karma:unit',
+    'delta'
+  ] );
   /**
    * The default task is to build and compile.
    */
@@ -565,10 +590,10 @@ module.exports = function ( grunt ) {
    */
   grunt.registerTask( 'build', [
     'clean', 'html2js',
-    'jshint', 'less:build', 'ngconstant:development',
+    'less:build', 'ngconstant:development',
     'concat:buildCss', 'copy:buildAppAssets', 'copy:buildVendorAssets',
-    'copy:buildAppjs', 'copy:buildVendorjs', 'copy:buildVendorcss',
-    'index:build', 'karmaconfig', 'karma:continuous'
+    'babel', 'copy:buildVendorjs', 'copy:buildVendorcss',
+    'index:build', //'karmaconfig', 'karma:continuous'
   ]);
 
   /**

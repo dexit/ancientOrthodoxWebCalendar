@@ -4,15 +4,11 @@ angular.module('datesMenuDirective', [
 
 .directive('datesMenuDirective',
     function datesMenuDirective() {
-      'use strict';
-
       return {
         restrict: 'E',
         replace: true,
+        scope: true,
         templateUrl: 'menus/dates-menu/dates-menu.tpl.html',
-        scope: {
-          menuMode: '@'
-        },
         controller: 'DatesMenuController'
       };
     }

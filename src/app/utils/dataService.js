@@ -1,11 +1,9 @@
-angular.module('getDataService', [
+angular.module('dataService', [
   'ngResource'
 ])
 
-.factory('getDataService',
-    function getDataService($resource, ENV) {
-      'use strict';
-
+.factory('dataService',
+    function dataService($resource, ENV) {
       return {
         years: $resource(
             'http://:api/:year', {
@@ -30,6 +28,11 @@ angular.module('getDataService', [
               api: ENV.apiEndpoint,
               year: '@_year',
               calendar: '@_calendar'
+            }),
+        search: $resource(
+            'http://:api/search/', {
+              api: ENV.apiEndpoint,
+              query: '@_query'
             })
       };
     });

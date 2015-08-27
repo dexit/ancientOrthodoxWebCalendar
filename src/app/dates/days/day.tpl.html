@@ -3,26 +3,26 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-10 col-md-offset-1 holydate">
-        <h2 class="holydate-header" ng-bind="day.date |
-            amDateFormat: dateFormat"></h2>
+        <h2 class="holydate-header" ng-bind="vm.day.date |
+            amDateFormat: vm.dateFormat"></h2>
         <div class="holydate-group">
-          <p ng-bind="day.gregorian_date"></p>
-          <p ng-bind="day.julian_date"></p>
+          <p ng-bind="vm.day.gregorianDate"></p>
+          <p ng-bind="vm.day.julianDate"></p>
         </div>
         <div class="holydate-group">
-          <p ng-bind="day.day_of_week"></p>
-          <p ng-bind="day.tone"></p>
+          <p ng-bind="vm.day.dayOfWeek"></p>
+          <p ng-bind="vm.day.tone"></p>
         </div>
         <div class="holydate-group">
           <p class="daily-feast-header"
-             ng-bind-html="day.daily_feast|to_trusted"></p>
+             ng-bind-html="vm.day.dailyFeast|to_trusted"></p>
         </div>
         <div class="holydate-group">
-          <p ng-bind-html="day.saints|to_trusted"></p>
+          <p ng-bind-html="vm.day.saints|to_trusted"></p>
         </div>
         <div class="holydate-group">
-          <p ng-bind="day.fast"></p>
-          <p ng-bind="day.bows"></p>
+          <p ng-bind="vm.day.fast"></p>
+          <p ng-bind="vm.day.bows"></p>
         </div>
       </div>
     </div>

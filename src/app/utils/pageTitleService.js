@@ -3,8 +3,6 @@ angular.module('pageTitleService', [
 
 .service('pageTitleService',
     function pageTitleService($location, $state, moment) {
-      'use strict';
-
       this.getTitle = function() {
 
         let date = moment($location.path(), 'YYYY/MM/DD');
@@ -23,7 +21,6 @@ angular.module('pageTitleService', [
         };
 
         let key = Object.keys(data.title)[0];
-
         return `${ titles[key].pageTitle } | Древлекалендарь`;
       };
     });

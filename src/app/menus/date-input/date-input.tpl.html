@@ -1,20 +1,21 @@
-<div class="col-md-4 holydate-date-input">
+<div class="col-md-4 holydate-date-input"
+     ng-controller="DateInputController as vm">
   <div class="input-group">
     <input type="text" class="form-control"
            id="disabledInput"
-           datepicker-popup="{{settings.dateFormat}}"
-           datepicker-options="datepickerOptions"
-           ng-model="selectedDate"
-           is-open="opened"
-           placeholder="{{settings.inputPlaceholder}}"
+           datepicker-popup="{{vm.settings.dateFormat}}"
+           datepicker-options="vm.datepickerOptions"
+           ng-model="vm.selectedDate"
+           is-open="vm.opened"
+           placeholder="{{vm.settings.inputPlaceholder}}"
            disabled/>
     <span class="input-group-btn">
       <button type="button" class="btn btn-default"
-              ng-click="openCalendar($event)">
+              ng-click="vm.openCalendar($event)">
         <i class="glyphicon glyphicon-calendar"></i>
       </button>
       <button type="button" class="btn btn-default"
-              ng-click="sendDate($event)">
+              ng-click="vm.sendDate($event)">
         <i class="glyphicon glyphicon-send"></i>
       </button>
     </span>

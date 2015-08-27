@@ -3,52 +3,32 @@ angular.module('DateInputController', [
 ])
 
 .controller('DateInputController',
-    function DateInputController($scope, $location, moment, pathService) {
-      'use strict';
+    function DateInputController(
+      $state, $location, moment, menuSettingsService, pathService) {
 
-      let settings = {
-        year: {
-          mode: 'year',
-          pathFormat: 'YYYY',
-          dateFormat: 'yyyy',
-          inputPlaceholder: 'Введите год:'
-        },
-        month: {
-          mode: 'month',
-          pathFormat: 'YYYY/MM',
-          dateFormat: 'MM.yyyy',
-          inputPlaceholder: 'Введите месяц:'
-        },
-        day: {
-          mode: 'day',
-          pathFormat: 'YYYY/MM/DD',
-          dateFormat: 'dd.MM.yyyy',
-          inputPlaceholder: 'Введите дату:'
-        }
+      let vm = this;
+      const settings = menuSettingsService[$state.current.name];
+      vm.settings = settings;
+
+      vm.datepickerOptions = {
+        datepickerMode: `'${ settings.mode }'`,
+        minMode: settings.mode
       };
 
-      $scope.datepickerOptions = {
-        datepickerMode: `'${ settings[$scope.pickerMode].mode }'`,
-        minMode: settings[$scope.pickerMode].mode
-      };
-
-      $scope.settings = settings[$scope.pickerMode];
-
-      $scope.openCalendar = function($event) {
+      vm.openCalendar = function($event) {
         $event.preventDefault();
         $event.stopPropagation();
-        $scope.opened = true;
+        vm.opened = true;
       };
 
-      $scope.sendDate = function($event) {
+      vm.sendDate = function($event) {
         $event.preventDefault();
         $event.stopPropagation();
 
-        let selectedDate = moment($scope.selectedDate);
+        let selectedDate = moment(vm.selectedDate);
 
         // Change url
-        pathService.setPath(
-            settings[$scope.pickerMode].pathFormat, selectedDate);
+        pathService.setPath(settings.pathFormat, selectedDate);
 
       };
     });
