@@ -1,4 +1,5 @@
 angular.module('ancientWebCalendar.utils', [
+  'dateValidatorService',
   'pageTitleService',
   'dataService',
   'linkToAnchorService',

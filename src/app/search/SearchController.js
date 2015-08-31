@@ -13,7 +13,7 @@ angular.module('SearchController', [
         .$promise.then(function(data) {
           // success
           vm.query = $stateParams.query;
-          vm.searchResult = data.searchResult[0];
+          vm.searchResult = data;
          }, function(errResponse) {
             // fail
       });

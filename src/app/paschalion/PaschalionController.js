@@ -7,7 +7,6 @@ angular.module('PaschalionController', [
         dataService, notifyingService, calendarSystemService) {
       let vm = this;
       // FIXME in a future this duplicate code:
-
       // Initial when the page loading
       dataService.paschalion.get({
         year: $stateParams.year,
