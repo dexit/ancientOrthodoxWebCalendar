@@ -2,6 +2,8 @@
      ng-controller="DateInputController as vm">
   <div class="input-group">
     <input type="text" class="form-control"
+           min-date="'{{vm.minDate}}'"
+           max-date="'{{vm.maxDate}}'"
            id="disabledInput"
            datepicker-popup="{{vm.settings.dateFormat}}"
            datepicker-options="vm.datepickerOptions"

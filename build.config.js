@@ -10,10 +10,16 @@ module.exports = {
   buildDir: 'build',
   compileDir: 'bin',
 
+  dateRange: {
+    minDate: '1900-01-01',
+    maxDate: '2099-12-31'
+  },
+
   devEnv: {
     name: 'development',
     apiEndpoint: 'localhost:9001'
   },
+
   prodEnv: {
     name: 'production',
     apiEndpoint: 'api.calendar.drevle.com'

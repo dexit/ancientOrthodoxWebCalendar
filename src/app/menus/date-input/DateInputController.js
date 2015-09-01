@@ -4,7 +4,8 @@ angular.module('DateInputController', [
 
 .controller('DateInputController',
     function DateInputController(
-      $state, $location, moment, menuSettingsService, pathService) {
+      $state, $location, moment,
+        DATE_RANGE, menuSettingsService, pathService) {
 
       let vm = this;
       const settings = menuSettingsService[$state.current.name];
@@ -14,6 +15,9 @@ angular.module('DateInputController', [
         datepickerMode: `'${ settings.mode }'`,
         minMode: settings.mode
       };
+
+      vm.minDate = DATE_RANGE.minDate;
+      vm.maxDate = DATE_RANGE.maxDate;
 
       vm.openCalendar = function($event) {
         $event.preventDefault();

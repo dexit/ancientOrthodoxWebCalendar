@@ -377,6 +377,7 @@ module.exports = function ( grunt ) {
           dest: '<%= buildDir %>/src/app/config/config.js'
         },
         constants: {
+          DATE_RANGE: '<%= dateRange %>',
           ENV: '<%= devEnv %>'
         }
       },
@@ -385,6 +386,7 @@ module.exports = function ( grunt ) {
           dest: '<%= buildDir %>/src/app/config/config.js'
         },
         constants: {
+          DATE_RANGE: '<%= dateRange %>',
           ENV: '<%= prodEnv %>'
         }
       }
@@ -602,8 +604,9 @@ module.exports = function ( grunt ) {
    * minifying your code.
    */
   grunt.registerTask( 'compile', [
-    'less:compile', 'copy:compileAssets', 'ngconstant:production',
-    'ngAnnotate', 'concat:compileJs', 'uglify', 'index:compile'
+    'less:compile', 'copy:compileAssets',
+    'ngconstant:production', 'ngAnnotate', 'concat:compileJs',
+    'uglify', 'index:compile'
   ]);
 
   /**

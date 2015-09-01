@@ -2,10 +2,10 @@ angular.module('dateValidatorService', [
 ])
 
 .service('dateValidatorService',
-    function dateValidatorService(moment) {
+    function dateValidatorService(moment, DATE_RANGE) {
 
-      this.minDate = moment([1900, 0, 0]);
-      this.maxDate = moment([2100, 0, 0]);
+      this.minDate = moment(DATE_RANGE.minDate, 'YYYY-MM-DD');
+      this.maxDate = moment(DATE_RANGE.maxDate, 'YYYY-MM-DD');
 
       this.check = function(date) {
         if (date.isValid()){
