@@ -83,10 +83,11 @@ module.exports = {
       'vendor/moment/locale/ru.js',
       'vendor/angular-moment/angular-moment.min.js',
       'vendor/angular-resource/angular-resource.min.js',
-      'vendor/angular-native-picker/build/angular-datepicker.js'
+      'vendor/angular-native-picker/build/angular-datepicker.js',
+      'vendor/angular-ui-notification/dist/angular-ui-notification.min.js'
     ],
     css: [
-
+      'vendor/angular-ui-notification/dist/angular-ui-notification.min.css'
     ],
     fonts: [
       'vendor/bootstrap/fonts/*'

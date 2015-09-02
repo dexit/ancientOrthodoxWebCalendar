@@ -1,48 +1,39 @@
 angular.module('ancientWebCalendar', [
-  'templates-app',
-  'templates-common',
-  'config',
+  'angularMoment',
   'ancientWebCalendar.menus',
   'ancientWebCalendar.utils',
   'ancientWebCalendar.paschalion',
   'ancientWebCalendar.search',
   'ancientWebCalendar.dates',
+  'config',
+  'templates-app',
+  'templates-common',
+  'ui-notification',
   'ui.router',
-  'angularMoment'
 ])
 
-.config(function myAppConfig($urlMatcherFactoryProvider, $urlRouterProvider) {
+.config(function(
+    $urlMatcherFactoryProvider, $urlRouterProvider, NotificationProvider) {
+
       $urlMatcherFactoryProvider.strictMode(false);
       $urlRouterProvider.otherwise('/');
+
+      NotificationProvider.setOptions({
+        delay: 10000,
+        startTop: 20,
+        startRight: 10,
+        verticalSpacing: 20,
+        horizontalSpacing: 20,
+        positionX: 'left',
+        positionY: 'bottom'
+      });
     })
 
-.run(function run(
-    $rootScope, $location, $state, $stateParams, moment,
-      amMoment, dateValidatorService) {
+.run(function (
+    $location, $state, $stateParams, moment, amMoment, stateHandlerService) {
 
     amMoment.changeLocale('ru');
-
-    // State error handling & date validation
-    $rootScope.$on('$stateChangeStart',
-      function(event, toState, toParams, fromState, fromParams){
-        let dates = {
-          today: moment(),
-          day: moment([toParams.year, toParams.month - 1, toParams.day]),
-          month: moment([toParams.year, toParams.month - 1]),
-          year: moment([toParams.year]),
-          get paschalion() {
-            return this.year;
-          }
-        };
-
-        if (toState.name in dates) {
-          if (!dateValidatorService.check(dates[toState.name])) {
-            $location.path('/');
-            // involving notification
-            alert('Дата неверная!');
-          }
-        }
-    });
+    stateHandlerService.handle();
   })
 
 .controller('AppController',
@@ -51,8 +42,8 @@ angular.module('ancientWebCalendar', [
 
       $scope.year = moment().format('YYYY');
       $scope.$on('$stateChangeSuccess',
-          function(event, toState, toParams, fromState, fromParams) {
-            $scope.pageTitle = pageTitleService.getTitle();
-          });
+        function(event, toState, toParams, fromState, fromParams) {
+          $scope.pageTitle = pageTitleService.getTitle();
+        });
     });
 

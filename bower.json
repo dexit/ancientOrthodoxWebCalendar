@@ -12,8 +12,7 @@
     "angular-moment": "x.x.x",
     "moment": "2.10.2",
     "angular-resource": "x.x.x",
-    "bootswatch": "x.x.x"
-
-
+    "bootswatch": "x.x.x",
+    "angular-ui-notification": "x.x.x"
   }
 }

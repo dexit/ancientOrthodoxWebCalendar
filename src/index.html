@@ -24,8 +24,9 @@
           <a class="navbar-brand" href="#">
             <img alt="Древлекалендарь" src="assets/images/logo.png">
           </a>
-          <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
-            ng-click="menuCollapsed =! menuCollapsed">
+          <button type="button" class="navbar-toggle"
+                  ng-init="menuCollapsed = true"
+                  ng-click="menuCollapsed =! menuCollapsed">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -36,15 +37,19 @@
           <ul class="nav navbar-nav">
             <li ui-sref-active="active">
               <a href ui-sref="today">
-                <i class="fa fa-home"></i>
-                Календарь
+                Древлекалендарь
               </a>
             </li>
             <li ui-sref-active="active">
               <a href ui-sref="paschalion({year: year})">
-                <i class="fa fa-info-circle"></i>
                 Зрячая пасхалия
               </a>
+            </li>
+            <li>
+              <button class="btn btn-info navbar-btn"
+                      ui-sref-active="active"
+                      ui-sref="about">О календаре
+              </button>
             </li>
           </ul>
           <search-input-directive placeholder="Имя святого или праздник"
@@ -53,14 +58,21 @@
       </div>
     </div>
     <div class="container" ui-view="main"></div>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-inner">
-          <p>
-            © 2015 <a href="http://www.vechnoe.info">Максим Чернятевич</a>.
-          </p>
+    <div class="container">
+      <footer class="footer">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="footer-inner">
+              <p>
+                © 2015
+                <a href="http://www.linkedin.com/in/MaximChernyatevich">
+                  Максим Чернятевич
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </body>
 </html>

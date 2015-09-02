@@ -1,13 +1,15 @@
 angular.module('ancientWebCalendar.utils', [
+  'calendarSystemService',
   'dateValidatorService',
-  'pageTitleService',
   'dataService',
   'linkToAnchorService',
-  'pathService',
-  'calendarSystemService',
   'notifyingService',
   'todayService',
-  'yearArrayService',
+  'pageTitleService',
+  'pathService',
+  'russianPluralizeFilter',
+  'stateHandlerService',
   'toTrustedFilter',
-  'russianPluralizeFilter'
+  'todayService',
+  'yearArrayService',
 ]);

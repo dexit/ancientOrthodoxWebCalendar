@@ -83,9 +83,16 @@ input[placeholder] {
 
 .navbar {
   margin-top: 20px;
+  font-family: @sans;
+  font-size: 120%;
 
   .navbar-brand {
     padding-top: 0;
+  }
+
+  .navbar-btn {
+    margin-left: 1em;
+    font-family: @sans;
   }
 
   small {
@@ -195,35 +202,12 @@ input[placeholder] {
 /**
  * Footer
  */
-
 .footer {
-  margin-top: 80px;
-
   .footer-inner {
-    padding: 40px 0;
-    border-top: 1px solid #DDD;
-  }
-
-  .social {
-    float: right;
-    margin: 0;
-    list-style: none;
-
-    li {
-      float: left;
-      margin-left: 20px;
-
-      a, a:visited {
-        color: @gray-light;
-        text-decoration: none;
-        font-size: 40px;
-        .transition( 250ms ease-in-out );
-
-        &:hover {
-          color: @gray;
-        }
-      }
-    }
+    font-family: @sans;
+    font-size: 120%;
+    padding-left: 3rem;
+    padding-top: 1rem;
   }
 }
 
