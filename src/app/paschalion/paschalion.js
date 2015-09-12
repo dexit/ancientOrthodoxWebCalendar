@@ -1,4 +1,4 @@
-angular.module('ancientWebCalendar.paschalion', [
+angular.module('ancientOrthodoxWebCalendar.paschalion', [
   'PaschalionController',
   'ui.router'
 ])

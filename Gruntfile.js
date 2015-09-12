@@ -595,7 +595,7 @@ module.exports = function ( grunt ) {
     'less:build', 'ngconstant:development',
     'concat:buildCss', 'copy:buildAppAssets', 'copy:buildVendorAssets',
     'babel', 'copy:buildVendorjs', 'copy:buildVendorcss',
-    'index:build', //'karmaconfig', 'karma:continuous'
+    'index:build' //,'karmaconfig', 'karma:continuous'
   ]);
 
   /**

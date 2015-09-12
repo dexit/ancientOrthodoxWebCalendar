@@ -17,12 +17,12 @@ module.exports = {
 
   devEnv: {
     name: 'development',
-    apiEndpoint: 'localhost:9001'
+    apiEndpoint: 'http://localhost:9001'
   },
 
   prodEnv: {
     name: 'production',
-    apiEndpoint: 'api.calendar.drevle.com'
+    apiEndpoint: 'http://api.calendar.drevle.com'
   },
 
   /**

@@ -1,4 +1,4 @@
-angular.module('ancientWebCalendar.utils', [
+angular.module('ancientOrthodoxWebCalendar.utils', [
   'calendarSystemService',
   'dateValidatorService',
   'dataService',
@@ -7,6 +7,7 @@ angular.module('ancientWebCalendar.utils', [
   'todayService',
   'pageTitleService',
   'pathService',
+  'httpInterceptor',
   'russianPluralizeFilter',
   'stateHandlerService',
   'toTrustedFilter',

@@ -1,4 +1,4 @@
-angular.module('ancientWebCalendar.search', [
+angular.module('ancientOrthodoxWebCalendar.search', [
   'SearchController',
   'ui.router'
 ])

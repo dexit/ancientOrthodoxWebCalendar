@@ -6,31 +6,29 @@ angular.module('dataService', [
     function dataService($resource, ENV) {
       return {
         years: $resource(
-            'http://:api/:year', {
-              api: ENV.apiEndpoint,
+            `${ ENV.apiEndpoint }/:year`, {
               year: '@_year'
             }),
         months: $resource(
-            'http://:api/:year/:month', {
+            `${ ENV.apiEndpoint }/:year/:month`, {
               api: ENV.apiEndpoint,
               year: '@_year',
               month: '@_month'
             }),
         days: $resource(
-            'http://:api/:year/:month/:day', {
-              api: ENV.apiEndpoint,
+            `${ ENV.apiEndpoint }/:year/:month/:day`, {
               year: '@_year',
               month: '@_month',
               day: '@_day'
             }),
         paschalion: $resource(
-            'http://:api/paschalion/:year', {
+            `${ ENV.apiEndpoint }/paschalion/:year`, {
               api: ENV.apiEndpoint,
               year: '@_year',
               calendar: '@_calendar'
             }),
         search: $resource(
-            'http://:api/search/', {
+            `${ ENV.apiEndpoint }/search/`, {
               api: ENV.apiEndpoint,
               query: '@_query'
             })

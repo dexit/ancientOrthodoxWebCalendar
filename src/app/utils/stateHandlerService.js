@@ -3,28 +3,50 @@ angular.module('stateHandlerService', [
 
 .service('stateHandlerService',
     function stateHandlerService(
-      $rootScope, $location, moment, Notification, dateValidatorService) {
+      $rootScope, $location, $state,
+        moment, Notification, dateValidatorService) {
 
       this.handle = function() {
         $rootScope.$on('$stateChangeStart',
           function(event, toState, toParams, fromState, fromParams){
+
+            let day = toParams.day;
+            let month = toParams.month;
+            let year = toParams.year;
+
             let dates = {
-              today: moment(),
-              day: moment([toParams.year, toParams.month - 1, toParams.day]),
-              month: moment([toParams.year, toParams.month - 1]),
-              year: moment([toParams.year]),
+              day: {
+                toDate: `${year}-${month}-${day}`,
+                date: moment([year, month - 1, day]),
+                format: 'YYYY-MM-DD'
+                },
+              month: {
+                toDate: `${ year }-${ month }`,
+                date: moment([year, month - 1]),
+                format: 'YYYY-MM'
+              },
+              year: {
+                toDate: `${ year }`,
+                date: moment([year]),
+                format: 'YYYY'
+              },
               get paschalion() {
                 return this.year;
               }
             };
 
-            if (toState.name in dates) {
-              if (!dateValidatorService.check(dates[toState.name])) {
-                $location.path('/');
-                // involving notification
+            if (toState.name in dates && !dateValidatorService.isValidDate(
+              dates[toState.name].date)) {
                 Notification.error('Дата неверная');
+                event.preventDefault();
               }
-            }
+
+            if (toState.name in dates &&
+                  !dateValidatorService.isValidDateFormat(
+                     dates[toState.name].toDate, dates[toState.name].format)) {
+                Notification.error('Неверный формат даты');
+                event.preventDefault();
+              }
         });
       };
 

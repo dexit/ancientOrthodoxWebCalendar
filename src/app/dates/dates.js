@@ -1,4 +1,4 @@
-angular.module('ancientWebCalendar.dates', [
+angular.module('ancientOrthodoxWebCalendar.dates', [
   'years',
   'months',
   'days',

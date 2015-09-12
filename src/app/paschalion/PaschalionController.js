@@ -4,7 +4,7 @@ angular.module('PaschalionController', [
 
 .controller('PaschalionController',
     function PaschalionController ($scope, $state, $stateParams,
-        dataService, notifyingService, calendarSystemService) {
+       dataService, notifyingService, calendarSystemService) {
       let vm = this;
       // FIXME in a future this duplicate code:
       // Initial when the page loading

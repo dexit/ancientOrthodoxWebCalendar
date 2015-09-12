@@ -1,4 +1,4 @@
-angular.module('ancientWebCalendar.menus', [
+angular.module('ancientOrthodoxWebCalendar.menus', [
   'search-input',
   'date-input',
   'dates-menu',

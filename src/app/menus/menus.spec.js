@@ -5,7 +5,7 @@
  * automatically.
  */
 describe( 'dates section', function() {
-  beforeEach( module( 'ancientWebCalendar.menus' ) );
+  beforeEach( module( 'ancientOrthodoxWebCalendar.menus' ) );
 
   it( 'should have a dummy test', inject( function() {
     expect( true ).toBeTruthy();
