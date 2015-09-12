@@ -12,6 +12,7 @@
     "angular-moment": "x.x.x",
     "angular-resource": "x.x.x",
     "angular-ui-notification": "0.0.12",
+    "angular-loading-bar": "x.x.x",
     "bootswatch": "x.x.x",
     "moment": "2.10.6"
 

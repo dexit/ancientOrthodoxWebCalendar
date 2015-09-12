@@ -1,5 +1,6 @@
 angular.module('ancientOrthodoxWebCalendar', [
   'angularMoment',
+  'angular-loading-bar',
   'ancientOrthodoxWebCalendar.menus',
   'ancientOrthodoxWebCalendar.utils',
   'ancientOrthodoxWebCalendar.paschalion',
