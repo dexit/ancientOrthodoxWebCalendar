@@ -21,7 +21,7 @@ $ grunt watch
 
 Затем, открываем `file:///path/to/calendar.drevle.com/build/index.html` 
 в вашем браузере. Для работы необходимо запустить REST-сервер
-[api.calendar.drevle.com](http://github.com/api.calendar.drevle.com): 
+[api.calendar.drevle.com](http://github.com/vechnoe/api.calendar.drevle.com): 
 
 
 
