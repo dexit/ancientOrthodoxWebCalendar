@@ -2,15 +2,15 @@
   "author": "Maxim Chernyatevich",
   "name": "ancientOrthodoxWebCalendar",
   "version": "0.0.1",
-  "homepage": "https://github.com/vechnoe/calendar.drevle.com",
+  "homepage": "https://github.com/vechnoe/ancientOrthodoxWebCalendar",
   "licenses": {
     "type": "MIT",
-    "url": "https://raw.github.com/vechnoe/calendar.drevle.com/master/LICENSE"
+    "url": "https://raw.github.com/vechnoe/ancientOrthodoxWebCalendar/master/LICENSE"
   },
-  "bugs": "https://github.com/vechnoe/calendar.drevle.com/issues",
+  "bugs": "https://github.com/vechnoe/ancientOrthodoxWebCalendar/issues",
   "repository": {
     "type": "git",
-    "url": "git@github.com:vechnoe/calendar.drevle.com.git"
+    "url": "git@github.com:vechnoe/ancientOrthodoxWebCalendar.git"
   },
   "dependencies": {},
   "devDependencies": {
