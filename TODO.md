@@ -1,6 +1,6 @@
 TODO
 ----
-* Add `About` part
+* Date-picker localization
 * Tests
 * Change ngResource to Restangular 
 * Remove pathService

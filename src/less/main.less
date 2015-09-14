@@ -103,12 +103,21 @@ input[placeholder] {
 /**
  * Holydate content
  */
-
+.panel-offset {
+  margin-left: 4.888888%;
+}
 .holydate-panel {
   background-color: #f6fcc7;
 
   .holydate {
     font-family: @serif-custom;
+  }
+
+  .holydate-text {
+    font-family: @serif;
+  }
+
+  .holydate, .holydate-text {
     font-size: 140%;
     color: black;
     margin-bottom: 1em;
@@ -164,6 +173,11 @@ input[placeholder] {
     dd {
       margin-bottom: 1.5em;
       padding-left: 3em;
+    }
+
+    a.content-link {
+       text-decoration: underline;
+       color: #2f2f2f;
     }
 
     .holydate-group {

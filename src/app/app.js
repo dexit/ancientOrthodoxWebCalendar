@@ -1,11 +1,12 @@
 angular.module('ancientOrthodoxWebCalendar', [
   'angularMoment',
   'angular-loading-bar',
-  'ancientOrthodoxWebCalendar.menus',
-  'ancientOrthodoxWebCalendar.utils',
   'ancientOrthodoxWebCalendar.paschalion',
   'ancientOrthodoxWebCalendar.search',
+  'ancientOrthodoxWebCalendar.about',
   'ancientOrthodoxWebCalendar.dates',
+  'ancientOrthodoxWebCalendar.menus',
+  'ancientOrthodoxWebCalendar.utils',
   'config',
   'templates-app',
   'templates-common',
@@ -21,7 +22,7 @@ angular.module('ancientOrthodoxWebCalendar', [
     $urlRouterProvider.otherwise('/');
 
     NotificationProvider.setOptions({
-      delay: 10000,
+      delay: 5000,
       startTop: 20,
       startRight: 10,
       verticalSpacing: 20,

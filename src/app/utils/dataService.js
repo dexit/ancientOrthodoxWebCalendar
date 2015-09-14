@@ -11,7 +11,6 @@ angular.module('dataService', [
             }),
         months: $resource(
             `${ ENV.apiEndpoint }/:year/:month`, {
-              api: ENV.apiEndpoint,
               year: '@_year',
               month: '@_month'
             }),
@@ -23,13 +22,11 @@ angular.module('dataService', [
             }),
         paschalion: $resource(
             `${ ENV.apiEndpoint }/paschalion/:year`, {
-              api: ENV.apiEndpoint,
               year: '@_year',
               calendar: '@_calendar'
             }),
         search: $resource(
             `${ ENV.apiEndpoint }/search/`, {
-              api: ENV.apiEndpoint,
               query: '@_query'
             })
       };
