@@ -18,6 +18,9 @@ angular.module('DateInputController', [
 
       vm.minDate = DATE_RANGE.minDate;
       vm.maxDate = DATE_RANGE.maxDate;
+      vm.currentText = settings.currentText;
+      vm.clearText = 'Очистить';
+      vm.closeText = 'Закрыть';
 
       vm.openCalendar = function($event) {
         $event.preventDefault();
