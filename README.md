@@ -67,7 +67,7 @@ $ grunt watch
 
 Затем, открываем `file:///path/to/ancientOrthodoxWebCalendar/build/index.html` 
 в вашем браузере. Для работы необходимо запустить REST-сервер
-[api.calendar.drevle.com](http://github.com/vechnoe/api.calendar.drevle.com)
+[api_calendar_drevle_com](http://github.com/vechnoe/api_calendar_drevle_com)
 
 
 Лицензия
