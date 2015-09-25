@@ -5,7 +5,7 @@ angular.module('YearController', [
 .controller('YearController',
     function YearsController(
       $state, $stateParams, moment,
-        dataService, linkToAnchorService) {
+        dataService, yearArrayService, linkToAnchorService) {
       let vm = this;
 
       vm.stateName = $state.current.name;
@@ -16,7 +16,7 @@ angular.module('YearController', [
       })
         .$promise.then(function(data) {
             // success
-            vm.year = data.year;
+            vm.year = yearArrayService.getArray(data.year);
           }, function(errResponse) {
             // fail
           });

@@ -11,5 +11,6 @@ angular.module('ancientOrthodoxWebCalendar.utils', [
   'russianPluralizeFilter',
   'stateHandlerService',
   'toTrustedFilter',
-  'todayService'
+  'todayService',
+  'yearArrayService'
 ]);
