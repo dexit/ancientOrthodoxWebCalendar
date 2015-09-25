@@ -59,7 +59,7 @@ ancientOrthodoxWebCalendar
 В директории проекта запускаем:
 $ git clone git://github.com/vechnoe/ancientOrthodoxWebCalendar
 $ cd ancientOrthodoxWebCalendar
-$ sudo npm -g install grunt-cli karma bower
+$ sudo npm -g install grunt-cli karma-cli bower
 $ npm install
 $ bower install
 $ grunt watch
