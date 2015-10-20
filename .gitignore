@@ -1,9 +1,10 @@
 *.sw*
 *~
 .idea/
-build/
-bin/
+build/*
+bin/*
 node_modules/
-!dist/vendor/
-vendor/
+vendor/*
+!vendor/placeholders
+!dist/vendor/*
 *.log
