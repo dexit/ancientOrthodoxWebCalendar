@@ -4,5 +4,6 @@
 build/
 bin/
 node_modules/
+!dist/vendor/
 vendor/
 *.log
