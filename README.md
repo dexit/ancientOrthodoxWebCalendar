@@ -6,9 +6,7 @@ ancientOrthodoxWebCalendar
 
 ![ancientOrthodoxWebCalendar](/web-calendar-screen.png)
 
-Демо
-----
-[http://calendar.drevle.com](http://calendar.drevle.com)
+Демо: [http://calendar.drevle.com](http://calendar.drevle.com)
 
 Древлеправославный старообрядческий календарь
 вычисляет дни недели, гласы, посты, подвижные и неподвижные праздники,
