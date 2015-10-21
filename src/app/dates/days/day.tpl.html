@@ -10,7 +10,7 @@
           <p ng-bind="vm.day.julianDate"></p>
         </div>
         <div class="holydate-group">
-          <p ng-bind="vm.day.dayOfWeek"></p>
+          <p ng-bind-html="vm.day.dayOfWeek|to_trusted"></p>
           <p ng-bind="vm.day.tone"></p>
         </div>
         <div class="holydate-group">
