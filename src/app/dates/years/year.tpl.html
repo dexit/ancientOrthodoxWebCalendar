@@ -26,7 +26,7 @@
                   <p ng-bind="day.julianDate"></p>
                 </div>
                 <div class="holydate-group">
-                  <p ng-bind="day.dayOfWeek"></p>
+                  <p ng-bind-html="day.dayOfWeek|to_trusted"></p>
                   <p ng-bind="day.tone"></p>
                 </div>
                 <div class="holydate-group">
