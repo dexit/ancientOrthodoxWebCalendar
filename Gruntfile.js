@@ -151,6 +151,17 @@ module.exports = function ( grunt ) {
           }
         ]
       },
+      buildVendorfonts: {
+        files: [
+          {
+            src: [ '<%= vendorFiles.fonts %>' ],
+            dest: '<%= buildDir %>/assets/fonts',
+            flatten: true,
+            cwd: '.',
+            expand: true
+          }
+        ]
+      },
       compileAssets: {
         files: [
           {
@@ -428,6 +439,7 @@ module.exports = function ( grunt ) {
           '<%= html2js.common.dest %>',
           '<%= html2js.app.dest %>',
           '<%= vendorFiles.css %>',
+          '<%= vendorFiles.fonts %>',
           '<%= buildDir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
         ]
       },
@@ -595,7 +607,7 @@ module.exports = function ( grunt ) {
     'less:build', 'ngconstant:development',
     'concat:buildCss', 'copy:buildAppAssets', 'copy:buildVendorAssets',
     'babel', 'copy:buildVendorjs', 'copy:buildVendorcss',
-    'index:build' //,'karmaconfig', 'karma:continuous'
+    'copy:buildVendorfonts', 'index:build' //,'karmaconfig', 'karma:continuous'
   ]);
 
   /**
