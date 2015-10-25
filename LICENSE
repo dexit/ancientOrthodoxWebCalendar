@@ -1,21 +1,26 @@
-The MIT License (MIT)
+This package represents web interface of the ancient Orthodox calendar for Oldbelievers
+(better known as Starovery or Staroobryadts). Evaluates daily feasts,
+Julian and Gregorian dates, fasts and bows. Contains an engine for
+searching Saints and feasts in the Menology, the Visual Paschalion.
 
-Copyright (c) 2015 Maxim Chernyatevich <maxim.chernyatevich@gmail.com>
+    Copyright (c) 2015 Maxim Chernyatevich http://www.linkedin.com/in/MaximChernyatevich
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-of the Software, and to permit persons to whom the Software is furnished to do
-so, subject to the following conditions:
+    Written by Maxim Chernyatevich <maxim.chernaytevich@gmail.com>
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+    The latest version of these programm may be found at
+	http://github.com/vechnoe/ancientOrthodoxWebCalendar
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Unless otherwise stated, all code and configuration in this repository ("this
+program" below) is licensed under the GNU GPL v3:
+
+This program is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+A copy of the GNU General Public License may be found in the file COPYING at
+the top of this repository.  See also http://www.gnu.org/licenses/gpl.html for full
+license details.

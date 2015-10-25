@@ -77,14 +77,26 @@ $ grunt watch
 --------
 
 Copyright &copy; 2015 Максим Чернятевич.
-*ancientOrthodoxWebCalendar* распространяется на условиях лицензии MIT:
+*ancientOrthodoxWebCalendar* распространяется на условиях лицензии GNU GPLv3:
 
 [https://raw.githubusercontent.com/vechnoe/ancientOrthodoxWebCalendar/master/LICENSE](https://raw.githubusercontent.com/vechnoe/ancientOrthodoxWebCalendar/master/LICENSE) 
 
 
+Помощь
+------
+
+Вы можете помочь проекту таким образом:
+
+* Делать форки и присылать pull-requests
+* Присылать мне ошибки
+* Присылать пожелания и обоснованную критику
+* Прислать мне денег, чтобы было больше времени на проект (пишите на почту,
+  принимаются даже биткоины)
+
 
 Контакты
---------       
+--------
+
 Сообщения об ошибках и пожелания отправляйте на почту:
 [vechnoe.info@gmail.com](mailto:vechnoe.info@gmail.com)
 
