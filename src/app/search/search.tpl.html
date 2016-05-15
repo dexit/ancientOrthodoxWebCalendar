@@ -12,8 +12,8 @@
             <div class="holydate-group">
               <h3 class="holydate-search-header">
                 <a ng-href="#/{{item.gregorianDate | amDateFormat:'YYYY/MM/DD'}}"/>
-                  {{item.gregorianDate | amDateFormat:'D MMMM YYYY по н. ст.'}}<br>
-                  {{item.julianDate | amDateFormat:'D MMMM YYYY по ст. ст.'}}
+                  {{item.gregorianDate | amDateFormat:'D MMMM YYYY г. по н. ст.'}}<br>
+                  {{item.julianDate | julianDate}}
                 </a>
               </h3>
               <p ng-bind-html="item.searchItem | to_trusted"></p>
