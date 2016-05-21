@@ -1,6 +1,6 @@
 {
   "name": "ancientOrthodoxWebCalendar",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "devDependencies": {
     "angular": "1.4.5",
     "angular-mocks": "x.x.x",
