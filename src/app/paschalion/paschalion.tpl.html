@@ -14,7 +14,7 @@
              <h3 class="holydate-header"
                  ng-bind="vm.paschalion[key].headline"></h3>
             <div ng-repeat="item in vm.paschalion[key].result">
-              <p ng-bind="item"></p>
+              <p ng-bind-html="item | to_trusted"></p>
             </div>
           </div>
         </div>
