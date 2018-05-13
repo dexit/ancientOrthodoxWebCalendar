@@ -1,24 +1,8 @@
 module.exports = function ( grunt ) {
-
-  /**
-   * Load required Grunt tasks. These are installed based on the versions listed
-   * in `package.json` when you do `npm install` in this directory.
-   */
-  grunt.loadNpmTasks('grunt-babel');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-conventional-changelog');
-  grunt.loadNpmTasks('grunt-bump');
-  grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('grunt-ng-annotate');
-  grunt.loadNpmTasks('grunt-html2js');
-  grunt.loadNpmTasks('grunt-ng-constant');
-
+  
+  require('load-grunt-tasks')(grunt);
+  require('time-grunt')(grunt);
+  
   /**
    * Load in our build configuration file.
    */
@@ -217,7 +201,9 @@ module.exports = function ( grunt ) {
 
     babel: {
       options: {
-        sourceMap: false
+        sourceMap: true,
+        presets: ['env']
+
       },
       dist: {
         files: [
@@ -402,22 +388,7 @@ module.exports = function ( grunt ) {
         }
       }
     },
-
-    /**
-     * The Karma configurations.
-     */
-    karma: {
-      options: {
-        configFile: '<%= buildDir %>/karma-unit.js'
-      },
-      unit: {
-        port: 9019,
-        background: true
-      },
-      continuous: {
-        singleRun: true
-      }
-    },
+    
 
     /**
      * The `index` task compiles the `index.html` file as a Grunt template. CSS
@@ -477,29 +448,51 @@ module.exports = function ( grunt ) {
 
     /**
      * And for rapid development, we have a watch set up that checks to see if
-     * any of the files listed below change, and then to execute the listed 
+     * any of the files listed below change, and then to execute the listed
      * tasks when they do. This just saves us from having to type "grunt" into
      * the command-line every time we want to see what we're working on; we can
      * instead just leave "grunt watch" running in a background terminal. Set it
      * and forget it, as Ron Popeil used to tell us.
      *
-     * But we don't need the same thing to happen for all the files. 
+     * But we don't need the same thing to happen for all the files.
      */
-    delta: {
-      /**
-       * By default, we want the Live Reload to work for all tasks; this is
-       * overridden in some tasks (like this file) where browser resources are
-       * unaffected. It runs by default on port 35729, which your browser
-       * plugin should auto-detect.
-       */
+    
+    connect: {
       options: {
-        livereload: true
+        port: 9999,
+        hostname: 'localhost',
+        livereload: 35729
       },
-
+      livereload: {
+        options: {
+          open: true,
+          middleware: function (connect) {
+            return [
+              connect.static('build'),
+              connect().use(
+                '/ng_modules',
+                connect.static('./ng_modules')
+              ),
+              connect.static('app')
+            ];
+          }
+        }
+      },
+      dist: {
+        options: {
+          open: true,
+          base: 'build'
+        }
+      }
+    },
+    
+    
+    delta: {
       /**
        * When the Gruntfile changes, we just want to lint it. In fact, when
        * your Gruntfile changes, it will automatically be reloaded!
        */
+      
       gruntfile: {
         files: 'Gruntfile.js',
         tasks: [ 'jshint:gruntfile' ],
@@ -517,11 +510,14 @@ module.exports = function ( grunt ) {
           '<%= appFiles.js %>'
         ],
         tasks: [
-          'jshint:src',
-          //'karma:unit:run',
-          'babel'
-          //'copy:buildAppjs'
-        ]
+          //'jshint:src',
+          'babel',
+          'copy:buildAppjs'
+        ],
+        options: {
+          livereload: true
+          //livereload: '<%= connect.options.livereload %>'
+        }
       },
 
       /**
@@ -532,7 +528,10 @@ module.exports = function ( grunt ) {
         files: [
           'src/assets/**/*'
         ],
-        tasks: [ 'copy:buildAppAssets', 'copy:buildVendorAssets' ]
+        tasks: [ 'copy:buildAppAssets', 'copy:buildVendorAssets' ],
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        }
       },
 
       /**
@@ -540,7 +539,11 @@ module.exports = function ( grunt ) {
        */
       html: {
         files: [ '<%= appFiles.html %>' ],
-        tasks: [ 'index:build' ]
+        tasks: [ 'index:build' ],
+        options: {
+          livereload: true
+          //livereload: '<%= connect.options.livereload %>'
+        }
       },
 
       /**
@@ -551,7 +554,10 @@ module.exports = function ( grunt ) {
           '<%= appFiles.atpl %>',
           '<%= appFiles.ctpl %>'
         ],
-        tasks: [ 'html2js' ]
+        tasks: [ 'html2js' ],
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        }
       },
 
       /**
@@ -559,23 +565,22 @@ module.exports = function ( grunt ) {
        */
       less: {
         files: [ 'src/**/*.less' ],
-        tasks: [ 'less:build' ]
-      },
-
-      /**
-       * When a JavaScript unit test file changes, we only want to lint it and
-       * run the unit tests. We don't want to do any live reloading.
-       */
-      jsunit: {
-        files: [
-          '<%= appFiles.jsunit %>'
-        ],
-        tasks: [ 'jshint:test', 'karma:unit:run' ],
+        tasks: [ 'less:build' ],
         options: {
-          livereload: false
+          livereload: '<%= connect.options.livereload %>'
         }
+      },
+      
+      livereload: {
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        },
+        files: [
+          'app/**/*.html',
+          'app/assets/*.css',
+          'app/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+        ]
       }
-
     }
   };
 
@@ -590,8 +595,8 @@ module.exports = function ( grunt ) {
    */
   grunt.renameTask( 'watch', 'delta' );
   grunt.registerTask( 'watch', [
+    'connect:livereload',
     'build',
-    //'karma:unit',
     'delta'
   ] );
   /**
@@ -607,7 +612,7 @@ module.exports = function ( grunt ) {
     'less:build', 'ngconstant:development',
     'concat:buildCss', 'copy:buildAppAssets', 'copy:buildVendorAssets',
     'babel', 'copy:buildVendorjs', 'copy:buildVendorcss',
-    'copy:buildVendorfonts', 'index:build' //,'karmaconfig', 'karma:continuous'
+    'copy:buildVendorfonts', 'index:build'
   ]);
 
   /**
@@ -617,7 +622,7 @@ module.exports = function ( grunt ) {
    */
   grunt.registerTask( 'compile', [
     'less:compile', 'copy:compileAssets',
-    'ngconstant:production', 'ngAnnotate', 'concat:compileJs',
+    'ngconstant:production', 'babel', 'ngAnnotate', 'concat:compileJs',
     'uglify', 'index:compile'
   ]);
 
@@ -664,27 +669,6 @@ module.exports = function ( grunt ) {
             scripts: jsFiles,
             styles: cssFiles,
             version: grunt.config( 'pkg.version' )
-          }
-        });
-      }
-    });
-  });
-
-  /**
-   * In order to avoid having to specify manually the files needed for karma to
-   * run, we use grunt to manage the list for us. The `karma/*` files are
-   * compiled as grunt templates for use by Karma. Yay!
-   */
-  grunt.registerMultiTask(
-      'karmaconfig', 'Process karma config templates', function () {
-    var jsFiles = filterForJS( this.filesSrc );
-
-    grunt.file.copy( 'karma/karma-unit.tpl.js', grunt.config( 'buildDir' ) +
-        '/karma-unit.js', {
-      process: function ( contents, path ) {
-        return grunt.template.process( contents, {
-          data: {
-            scripts: jsFiles
           }
         });
       }

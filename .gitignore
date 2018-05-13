@@ -1,10 +1,11 @@
 *.sw*
 *~
 .idea/
-build/*
-bin/*
+build/
+bin/
 node_modules/
 vendor/*
 !vendor/placeholders
 !dist/vendor/*
 *.log
+*.lock

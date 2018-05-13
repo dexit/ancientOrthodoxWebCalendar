@@ -15,9 +15,16 @@ angular.module('ancientOrthodoxWebCalendar', [
 ])
 
 .config(
-  function ($urlMatcherFactoryProvider, $urlRouterProvider,
-              $httpProvider, NotificationProvider) {
+  function (
+    $urlMatcherFactoryProvider,
+    $urlRouterProvider,
+    $resourceProvider,
+    $locationProvider,
+    $httpProvider,
+    NotificationProvider) {
 
+    $locationProvider.html5Mode(true);
+    //$resourceProvider.defaults.stripTrailingSlashes = false;
     $urlMatcherFactoryProvider.strictMode(false);
     $urlRouterProvider.otherwise('/');
 
