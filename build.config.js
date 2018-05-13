@@ -22,7 +22,7 @@ module.exports = {
 
   prodEnv: {
     name: 'production',
-    apiEndpoint: 'http://api.calendar.drevle.com'
+    apiEndpoint: 'https://api.calendar.drevle.com'
   },
 
   /**
