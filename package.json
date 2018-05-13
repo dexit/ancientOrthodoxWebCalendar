@@ -22,7 +22,7 @@
     "angular-ui-notification": "0.3.6",
     "angular-loading-bar": "0.9.0",
     "bootswatch-less": "3.3.4",
-    "moment": "~2.10.6"
+    "moment": "^2.19.3"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
